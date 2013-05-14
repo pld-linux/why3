@@ -9,7 +9,6 @@ Source0:	https://gforge.inria.fr/frs/download.php/31257/%{name}-%{version}.tar.g
 URL:		http://why3.lri.fr/
 BuildRequires:	camlp5
 BuildRequires:	coq
-BuildRequires:	emacs
 BuildRequires:	evince
 BuildRequires:	gtksourceview2-devel
 BuildRequires:	ocaml
@@ -20,7 +19,6 @@ BuildRequires:	ocaml-lablgtk2-gtksourceview2-devel
 BuildRequires:	ocaml-sqlite-devel
 BuildRequires:	rubber
 BuildRequires:	sqlite3-devel
-BuildRequires:	xemacs
 Requires:	gtksourceview2
 %requires_eq	ocaml-runtime
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
