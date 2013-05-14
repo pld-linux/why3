@@ -15,7 +15,8 @@ BuildRequires:	gtksourceview2-devel
 BuildRequires:	ocaml
 BuildRequires:	ocaml-findlib-devel
 BuildRequires:	ocaml-graph-devel
-BuildRequires:	ocaml-lablgtk-devel
+BuildRequires:	ocaml-lablgtk2-devel
+BuildRequires:	ocaml-lablgtk2-gtksourceview2-devel
 BuildRequires:	ocaml-sqlite-devel
 BuildRequires:	rubber
 BuildRequires:	sqlite3-devel
