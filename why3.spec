@@ -1,7 +1,7 @@
 Summary:	Software verification platform
 Name:		why3
 Version:	0.73
-Release:	1
+Release:	2
 Group:		Applications
 License:	LGPLv2 with exceptions
 Source0:	https://gforge.inria.fr/frs/download.php/31257/%{name}-%{version}.tar.gz
@@ -31,6 +31,14 @@ library of proof task transformations that can be chained to produce a
 suitable input for a large set of theorem provers, including SMT
 solvers, TPTP provers, as well as interactive proof assistants.
 
+%package examples
+Summary:	Example problems for why3
+Group:		Applications
+Requires:	%{name} = %{version}-%{release}
+
+%description examples
+Example problems for why3.
+
 %prep
 %setup -q
 
@@ -42,6 +50,7 @@ solvers, TPTP provers, as well as interactive proof assistants.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT/%{_examplesdir}/%{name}-%{version}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -49,6 +58,8 @@ rm -rf $RPM_BUILD_ROOT
 # Move the gtksourceview language file to the right place
 install -d $RPM_BUILD_ROOT%{_datadir}/gtksourceview-2.0
 mv $RPM_BUILD_ROOT%{_datadir}/%{name}/lang $RPM_BUILD_ROOT%{_datadir}/gtksourceview-2.0/language-specs
+
+cp -a examples/* $RPM_BUILD_ROOT/%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -60,3 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_datadir}/gtksourceview-2.0/language-specs/why.lang
 %{_libdir}/%{name}
+
+%files examples
+%defattr(644,root,root,755)
+%{_examplesdir}/%{name}-%{version}
