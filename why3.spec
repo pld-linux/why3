@@ -1,14 +1,14 @@
 Summary:	Software verification platform
 Name:		why3
-Version:	0.73
-Release:	2
+Version:	0.83
+Release:	1
 Group:		Applications
 License:	LGPLv2 with exceptions
-Source0:	https://gforge.inria.fr/frs/download.php/31257/%{name}-%{version}.tar.gz
-# Source0-md5:	8994f147b7fc4084da46e81693e044bb
+Source0:	https://gforge.inria.fr/frs/download.php/33490/%{name}-%{version}.tar.gz
+# Source0-md5:	35f99e5f64939e50ea57f641ba2073ec
 URL:		http://why3.lri.fr/
 BuildRequires:	camlp5
-BuildRequires:	coq
+BuildRequires:	coq >= 8.4
 BuildRequires:	evince
 BuildRequires:	gtksourceview2-devel
 BuildRequires:	ocaml
@@ -17,6 +17,7 @@ BuildRequires:	ocaml-graph-devel
 BuildRequires:	ocaml-lablgtk2-devel
 BuildRequires:	ocaml-lablgtk2-gtksourceview2-devel
 BuildRequires:	ocaml-sqlite-devel
+BuildRequires:	ocaml-zarith-devel
 BuildRequires:	rubber
 BuildRequires:	sqlite3-devel
 Requires:	gtksourceview2
@@ -69,7 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc LICENSE README doc/manual.pdf
 %attr(755,root,root) %{_bindir}/%{name}*
 %{_datadir}/%{name}
-%{_datadir}/gtksourceview-2.0/language-specs/why.lang
+%{_datadir}/gtksourceview-2.0/language-specs/why3.lang
 %{_libdir}/%{name}
 
 %files examples
