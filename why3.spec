@@ -1,7 +1,7 @@
 Summary:	Software verification platform
 Name:		why3
 Version:	0.83
-Release:	1
+Release:	2
 Group:		Applications
 License:	LGPLv2 with exceptions
 Source0:	https://gforge.inria.fr/frs/download.php/33490/%{name}-%{version}.tar.gz
@@ -71,7 +71,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/%{name}*
 %{_datadir}/%{name}
 %{_datadir}/gtksourceview-2.0/language-specs/why3.lang
-%{_libdir}/%{name}
+%dir %{_libdir}/%{name}
+%{_libdir}/%{name}/coq
+%{_libdir}/%{name}/coq-tactic
+%{_libdir}/%{name}/plugins
+%attr(755,root,root) %{_libdir}/%{name}/why3-call-pvs
+%attr(755,root,root) %{_libdir}/%{name}/why3-cpulimit
 
 %files examples
 %defattr(644,root,root,755)
