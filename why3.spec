@@ -1,9 +1,9 @@
 Summary:	Software verification platform
 Name:		why3
 Version:	0.87.3
-Release:	0.1
-Group:		Applications
+Release:	1
 License:	LGPLv2 with exceptions
+Group:		Applications
 Source0:	https://gforge.inria.fr/frs/download.php/36398/%{name}-%{version}.tar.gz
 # Source0-md5:	ea24a4877ca09e2ec4fff19d5f4d35c6
 URL:		http://why3.lri.fr/
@@ -77,6 +77,17 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/%{name}/coq
 %{_libdir}/%{name}/coq-tactic
 %{_libdir}/%{name}/plugins
+%dir %{_libdir}/%{name}/commands
+%attr(755,root,root) %{_libdir}/why3/commands/why3config
+%attr(755,root,root) %{_libdir}/why3/commands/why3doc
+%attr(755,root,root) %{_libdir}/why3/commands/why3execute
+%attr(755,root,root) %{_libdir}/why3/commands/why3extract
+%attr(755,root,root) %{_libdir}/why3/commands/why3ide
+%attr(755,root,root) %{_libdir}/why3/commands/why3prove
+%attr(755,root,root) %{_libdir}/why3/commands/why3realize
+%attr(755,root,root) %{_libdir}/why3/commands/why3replay
+%attr(755,root,root) %{_libdir}/why3/commands/why3session
+%attr(755,root,root) %{_libdir}/why3/commands/why3wc
 %attr(755,root,root) %{_libdir}/%{name}/why3-call-pvs
 %attr(755,root,root) %{_libdir}/%{name}/why3-cpulimit
 
