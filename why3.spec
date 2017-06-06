@@ -1,11 +1,11 @@
 Summary:	Software verification platform
 Name:		why3
-Version:	0.83
-Release:	6
+Version:	0.87.3
+Release:	0.1
 Group:		Applications
 License:	LGPLv2 with exceptions
-Source0:	https://gforge.inria.fr/frs/download.php/33490/%{name}-%{version}.tar.gz
-# Source0-md5:	35f99e5f64939e50ea57f641ba2073ec
+Source0:	https://gforge.inria.fr/frs/download.php/36398/%{name}-%{version}.tar.gz
+# Source0-md5:	ea24a4877ca09e2ec4fff19d5f4d35c6
 URL:		http://why3.lri.fr/
 BuildRequires:	camlp5
 BuildRequires:	coq >= 8.4
@@ -16,6 +16,8 @@ BuildRequires:	ocaml-findlib-devel
 BuildRequires:	ocaml-graph-devel
 BuildRequires:	ocaml-lablgtk2-devel
 BuildRequires:	ocaml-lablgtk2-gtksourceview2-devel
+BuildRequires:	ocaml-menhir
+BuildRequires:	ocaml-menhir-devel
 BuildRequires:	ocaml-sqlite-devel
 BuildRequires:	ocaml-zarith-devel
 BuildRequires:	rubber
