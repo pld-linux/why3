@@ -1,7 +1,7 @@
 Summary:	Software verification platform
 Name:		why3
 Version:	1.4.0
-Release:	1
+Release:	2
 License:	LGPLv2 with exceptions
 Group:		Applications
 Source0:	https://gforge.inria.fr/frs/download.php/38425/%{name}-%{version}.tar.gz
@@ -24,6 +24,8 @@ BuildRequires:	sqlite3-devel
 # same as ocaml-zarith
 ExclusiveArch:	%{ix86} %{x8664} %{arm} aarch64 ppc sparc sparcv9
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_noautoreq	ocamlx?\\\(Why3\\\)
 
 %description
 Why3 is the next generation of the Why software verification platform.
