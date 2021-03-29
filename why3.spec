@@ -21,6 +21,8 @@ BuildRequires:	ocaml-zarith-devel
 BuildRequires:	rubber
 BuildRequires:	sqlite3-devel
 %requires_eq	ocaml-runtime
+# same as ocaml-zarith
+ExclusiveArch:	%{ix86} %{x8664} %{arm} aarch64 ppc sparc sparcv9
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
