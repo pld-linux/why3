@@ -1,28 +1,25 @@
 Summary:	Software verification platform
 Name:		why3
-Version:	0.87.3
+Version:	1.4.0
 Release:	1
 License:	LGPLv2 with exceptions
 Group:		Applications
-Source0:	https://gforge.inria.fr/frs/download.php/36398/%{name}-%{version}.tar.gz
-# Source0-md5:	ea24a4877ca09e2ec4fff19d5f4d35c6
+Source0:	https://gforge.inria.fr/frs/download.php/38425/%{name}-%{version}.tar.gz
+# Source0-md5:	9755cedf1edfcacff652149783e18647
 URL:		http://why3.lri.fr/
 BuildRequires:	camlp5
-BuildRequires:	coq >= 8.4
-BuildRequires:	evince
-BuildRequires:	gtksourceview2-devel
+BuildRequires:	coq >= 8.13
 BuildRequires:	ocaml
 BuildRequires:	ocaml-findlib-devel
 BuildRequires:	ocaml-graph-devel
-BuildRequires:	ocaml-lablgtk2-devel
-BuildRequires:	ocaml-lablgtk2-gtksourceview2-devel
-BuildRequires:	ocaml-menhir
+BuildRequires:	ocaml-lablgtk3-devel
+BuildRequires:	ocaml-lablgtk3-gtksourceview-devel
 BuildRequires:	ocaml-menhir-devel
+BuildRequires:	ocaml-num-devel
 BuildRequires:	ocaml-sqlite-devel
 BuildRequires:	ocaml-zarith-devel
 BuildRequires:	rubber
 BuildRequires:	sqlite3-devel
-Requires:	gtksourceview2
 %requires_eq	ocaml-runtime
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -53,43 +50,36 @@ Example problems for why3.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/%{_examplesdir}/%{name}-%{version}
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 # Move the gtksourceview language file to the right place
-install -d $RPM_BUILD_ROOT%{_datadir}/gtksourceview-2.0
-mv $RPM_BUILD_ROOT%{_datadir}/%{name}/lang $RPM_BUILD_ROOT%{_datadir}/gtksourceview-2.0/language-specs
+install -d $RPM_BUILD_ROOT%{_datadir}/gtksourceview-3.0
+%{__mv} $RPM_BUILD_ROOT%{_datadir}/%{name}/lang $RPM_BUILD_ROOT%{_datadir}/gtksourceview-3.0/language-specs
 
-cp -a examples/* $RPM_BUILD_ROOT/%{_examplesdir}/%{name}-%{version}
+cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LICENSE README doc/manual.pdf
+%doc CHANGES.md README.md
 %attr(755,root,root) %{_bindir}/%{name}*
 %{_datadir}/%{name}
-%{_datadir}/gtksourceview-2.0/language-specs/why3.lang
+%{_datadir}/gtksourceview-3.0/language-specs/why3.lang
+%{_datadir}/gtksourceview-3.0/language-specs/why3c.lang
+%{_datadir}/gtksourceview-3.0/language-specs/why3py.lang
 %dir %{_libdir}/%{name}
 %{_libdir}/%{name}/coq
-%{_libdir}/%{name}/coq-tactic
 %{_libdir}/%{name}/plugins
 %dir %{_libdir}/%{name}/commands
-%attr(755,root,root) %{_libdir}/why3/commands/why3config
-%attr(755,root,root) %{_libdir}/why3/commands/why3doc
-%attr(755,root,root) %{_libdir}/why3/commands/why3execute
-%attr(755,root,root) %{_libdir}/why3/commands/why3extract
-%attr(755,root,root) %{_libdir}/why3/commands/why3ide
-%attr(755,root,root) %{_libdir}/why3/commands/why3prove
-%attr(755,root,root) %{_libdir}/why3/commands/why3realize
-%attr(755,root,root) %{_libdir}/why3/commands/why3replay
-%attr(755,root,root) %{_libdir}/why3/commands/why3session
-%attr(755,root,root) %{_libdir}/why3/commands/why3wc
+%attr(755,root,root) %{_libdir}/%{name}/commands/*.cmxs
 %attr(755,root,root) %{_libdir}/%{name}/why3-call-pvs
-%attr(755,root,root) %{_libdir}/%{name}/why3-cpulimit
+%attr(755,root,root) %{_libdir}/%{name}/why3cpulimit
+%attr(755,root,root) %{_libdir}/%{name}/why3server
 
 %files examples
 %defattr(644,root,root,755)
