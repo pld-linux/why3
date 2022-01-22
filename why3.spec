@@ -1,7 +1,7 @@
 Summary:	Software verification platform
 Name:		why3
 Version:	1.4.0
-Release:	3
+Release:	4
 License:	LGPLv2 with exceptions
 Group:		Applications
 Source0:	https://gforge.inria.fr/frs/download.php/38425/%{name}-%{version}.tar.gz
